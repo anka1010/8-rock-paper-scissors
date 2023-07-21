@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+
+/* COLORS */
+:root {
+  /* 
+### Primary
+- Lizard Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%)
+- Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%)
+*/
+
+  --orange-gradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  --violet-gradient: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  --red-gradient: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --background-gradient: linear-gradient(
+    hsl(214, 47%, 23%),
+    hsl(238, 48%, 15%)
+  );
+
+  --dark: hsl(229, 25%, 31%);
+  --grey: hsl(217, 16%, 45%);
+  --violet: hsl(229, 64%, 46%);
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+/* LINKS */
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  margin: 5rem;
+
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1;
+
+  background: var(--background-gradient) no-repeat;
+  color: #fff;
+  height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 133rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* GAME */
+.game {
+  width: 70rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* HEADER */
+.header {
+  width: 100%;
+  height: 15rem;
+  padding: 1.6rem 2.2rem 3rem;
+  border: 2px solid var(--grey);
+  border-radius: 0.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-name {
+  font-weight: 700;
+  font-size: 3rem;
+  text-transform: uppercase;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.score {
+  width: 15rem;
+  height: 11rem;
+  background-color: #fff;
+  border-radius: 0.4rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-text {
+  text-transform: uppercase;
+  color: var(--violet);
+}
+
+.score-number {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--grey);
+}
+
+/* PLAY */
+.play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  cursor: pointer;
+  display: block;
+
+  width: 20rem;
+  height: 20rem;
+}
+
+/* Player choose */
+.scene1 {
+  width: 47.7rem;
+
+  /* background: contain no-repeat ("../public/img/bg-triangle.svg"); */
+}
+
+/* RULES */
+.rules {
+  align-self: flex-end;
+}
