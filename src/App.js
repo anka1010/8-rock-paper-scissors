@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function App() {
   return (
     <div className="container">
@@ -12,7 +14,7 @@ function Game() {
   return (
     <div className="game">
       <Header />
-      <Play />
+      <Main />
     </div>
   );
 }
@@ -21,7 +23,7 @@ function Game() {
 function Header() {
   return (
     <div className="header">
-      <img src="./img/logo.svg" alt="game name" />
+      <img src="./img/logo.svg" alt="Rock, Paper, Scissors" />
       <Score />
     </div>
   );
@@ -36,24 +38,53 @@ function Score() {
   );
 }
 
-// PLAY
-function Play() {
+// MAIN
+function Main() {
+  const [userPick, setUserPick] = useState();
+  const [housePick, setHousePick] = useState();
+
+  // if (!userPick)
   return (
-    <div className="play">
-      <Scene1 />
+    <div className="main">
+      <Scene1 onUserPick={setUserPick} />
+      <Scene2 />
     </div>
   );
 }
 
-function Scene1() {
+function Scene1({ onUserPick }) {
   return (
-    <div>
-      <button className="button">Button 1</button>
-      <button className="button">Button 2</button>
-      <button className="button">Button 3</button>
+    <div className="scene-1">
+      <button className="btn rock" onClick={() => onUserPick("rock")}></button>
+      <button
+        className="btn paper"
+        onClick={() => onUserPick("paper")}
+      ></button>
+      <button
+        className="btn scissors"
+        onClick={() => onUserPick("scissors")}
+      ></button>
     </div>
   );
 }
+
+function Scene2() {
+  return (
+    <div className="scene-2">
+      <div>
+        <h2>You picked</h2>
+        <button className="btn rock"></button>
+      </div>
+      <div>
+        <h2>The house picked</h2>
+        <button className="btn scissors"></button>
+      </div>
+    </div>
+  );
+}
+function Scene3() {}
+function Scene4() {}
+function Scene5() {}
 
 // RULES
 function Rules() {

@@ -53,6 +53,34 @@ a:active {
   text-decoration: none;
 }
 
+/* BUTTONS */
+
+.btn {
+  cursor: pointer;
+  display: block;
+
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+}
+
+.rock {
+  background: center no-repeat url("../public/img/icon-rock.svg"),
+    var(--red-gradient);
+}
+
+.paper {
+  background: center no-repeat url("../public/img/icon-paper.svg"),
+    var(--violet-gradient);
+}
+
+.scissors {
+  background: center no-repeat url("../public/img/icon-scissors.svg"),
+    var(--orange-gradient);
+}
+
+/* STYLES */
+
 body {
   margin: 5rem;
 
@@ -76,7 +104,6 @@ body {
 
 /* GAME */
 .game {
-  width: 70rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,69 +111,89 @@ body {
 
 /* HEADER */
 .header {
-  width: 100%;
+  width: 70rem;
   height: 15rem;
-  padding: 1.6rem 2.2rem 3rem;
   border: 2px solid var(--grey);
-  border-radius: 0.5rem;
+  border-radius: 1.5rem;
+  padding-left: 3rem;
+  padding-right: 2.2rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.game-name {
-  font-weight: 700;
-  font-size: 3rem;
-  text-transform: uppercase;
-
-  display: flex;
-  flex-direction: column;
-}
-
 .score {
   width: 15rem;
   height: 11rem;
   background-color: #fff;
-  border-radius: 0.4rem;
+  border-radius: 0.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .score-text {
+  font-size: 1.3rem;
   text-transform: uppercase;
+  letter-spacing: 0.2rem;
   color: var(--violet);
 }
 
 .score-number {
-  font-size: 3.5rem;
+  font-size: 6rem;
   font-weight: 700;
-  color: var(--grey);
+  color: var(--dark);
 }
 
-/* PLAY */
-.play {
+/* MAIN */
+.main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  margin-top: 6.2rem;
 }
 
-.button {
-  cursor: pointer;
-  display: block;
+/* SCENE 1 */
+.scene-1 {
+  width: 47.6rem;
+  height: 43rem;
+  background-image: ("../public/img/bg-triangle.svg");
 
-  width: 20rem;
-  height: 20rem;
+  position: relative;
 }
 
-/* Player choose */
-.scene1 {
-  width: 47.7rem;
+.scene-1 *:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
-  /* background: contain no-repeat ("../public/img/bg-triangle.svg"); */
+.scene-1 *:nth-child(2) {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.scene-1 *:nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+/* SCENE 2 */
+.scene-2 {
+  width: 70rem;
+  display: grid;
+  grid-template-columns: repeat(1fr);
 }
 
 /* RULES */
