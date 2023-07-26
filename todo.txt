@@ -1,0 +1,1 @@
+TODO 1. refactor grid to flex (to easy insert item) - test it 

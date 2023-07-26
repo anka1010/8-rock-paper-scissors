@@ -1,13 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
 
-/* COLORS */
 :root {
-  /* 
-### Primary
-- Lizard Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%)
-- Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%)
-*/
-
+  /* COLORS */
   --orange-gradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
   --violet-gradient: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
   --red-gradient: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
@@ -15,10 +9,12 @@
     hsl(214, 47%, 23%),
     hsl(238, 48%, 15%)
   );
-
   --dark: hsl(229, 25%, 31%);
   --grey: hsl(217, 16%, 45%);
   --violet: hsl(229, 64%, 46%);
+
+  /* BUTTON */
+  --button-radius: 20rem;
 }
 
 *,
@@ -56,12 +52,15 @@ a:active {
 /* BUTTONS */
 
 .btn {
-  cursor: pointer;
   display: block;
 
-  width: 20rem;
-  height: 20rem;
+  width: var(--button-radius);
+  height: var(--button-radius);
   border-radius: 50%;
+}
+
+.btn-active {
+  cursor: pointer;
 }
 
 .rock {
@@ -82,16 +81,15 @@ a:active {
 /* STYLES */
 
 body {
-  margin: 5rem;
-
   font-family: "Barlow Semi Condensed", sans-serif;
   font-size: 1.6rem;
   font-weight: 600;
   line-height: 1;
 
+  height: 100%;
+  margin: 5rem;
   background: var(--background-gradient) no-repeat;
   color: #fff;
-  height: 100vh;
 }
 
 .container {
@@ -160,8 +158,8 @@ body {
   margin-top: 6.2rem;
 }
 
-/* SCENE 1 */
-.scene-1 {
+/* SCENE PLAY */
+.scene-play {
   width: 47.6rem;
   height: 43rem;
   background-image: ("../public/img/bg-triangle.svg");
@@ -169,19 +167,19 @@ body {
   position: relative;
 }
 
-.scene-1 *:nth-child(1) {
+.scene-play *:nth-child(1) {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.scene-1 *:nth-child(2) {
+.scene-play *:nth-child(2) {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-.scene-1 *:nth-child(3) {
+.scene-play *:nth-child(3) {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -189,11 +187,32 @@ body {
   margin: 0 auto;
 }
 
-/* SCENE 2 */
-.scene-2 {
+/* SCENE PICKED */
+.scene-picked {
   width: 70rem;
-  display: grid;
-  grid-template-columns: repeat(1fr);
+  display: flex;
+}
+
+.scene-picked * {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+}
+
+.scene-picked h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  margin-bottom: 6.7rem;
+}
+
+.scene-picked .house-pick {
+  width: calc(var(--button-radius) * 0.8);
+  height: calc(var(--button-radius) * 0.8);
+  border-radius: 50%;
+  background-color: var(--violet);
+  mix-blend-mode: multiply;
+  filter: opacity(0.5);
 }
 
 /* RULES */

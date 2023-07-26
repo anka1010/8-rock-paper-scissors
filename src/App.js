@@ -43,48 +43,75 @@ function Main() {
   const [userPick, setUserPick] = useState();
   const [housePick, setHousePick] = useState();
 
-  // if (!userPick)
+  let result;
+
   return (
     <div className="main">
-      <Scene1 onUserPick={setUserPick} />
-      <Scene2 />
+      {/* {!userPick && !housePick && <ScenePlay onUserPick={setUserPick} />}
+      {userPick && !housePick && <SceneUserPicked />}
+      {userPick && housePick && <SceneHousePicked />} */}
+      <SceneUserLose />
+      {/* <SceneUserWin /> */}
     </div>
   );
 }
 
-function Scene1({ onUserPick }) {
+function ScenePlay({ onUserPick }) {
   return (
-    <div className="scene-1">
-      <button className="btn rock" onClick={() => onUserPick("rock")}></button>
+    <div className="scene-play">
       <button
-        className="btn paper"
+        className="btn btn-active rock"
+        onClick={() => onUserPick("rock")}
+      ></button>
+      <button
+        className="btn btn-active paper"
         onClick={() => onUserPick("paper")}
       ></button>
       <button
-        className="btn scissors"
+        className="btn btn-active scissors"
         onClick={() => onUserPick("scissors")}
       ></button>
     </div>
   );
 }
 
-function Scene2() {
+function SceneUserPicked() {
   return (
-    <div className="scene-2">
+    <div className="scene-picked">
       <div>
         <h2>You picked</h2>
-        <button className="btn rock"></button>
+        <button className="btn scissors"></button>
       </div>
       <div>
         <h2>The house picked</h2>
-        <button className="btn scissors"></button>
+        <button className="house-pick"></button>
       </div>
     </div>
   );
 }
-function Scene3() {}
-function Scene4() {}
-function Scene5() {}
+
+function SceneHousePicked() {
+  return (
+    <div className="scene-picked">
+      <div>
+        <h2>You picked</h2>
+        <button className="btn scissors"></button>
+      </div>
+      <div>
+        <h2>The house picked</h2>
+        <button className="btn rock"></button>
+      </div>
+    </div>
+  );
+}
+
+function SceneUserLose() {
+  return <div className="scene-result"></div>;
+}
+
+function SceneUserWin() {
+  return <div>You win</div>;
+}
 
 // RULES
 function Rules() {
