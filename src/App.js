@@ -11,29 +11,31 @@ export default function App() {
 
 // GAME
 function Game() {
+  const [score, setScore] = useState(0);
+
   return (
     <div className="game">
-      <Header />
+      <Header score={score} />
       <Main />
     </div>
   );
 }
 
 // HEADER
-function Header() {
+function Header({ score, onScoreChange }) {
   return (
     <div className="header">
       <img src="./img/logo.svg" alt="Rock, Paper, Scissors" />
-      <Score />
+      <Score score={score} />
     </div>
   );
 }
 
-function Score() {
+function Score({ score }) {
   return (
     <div className="score">
       <p className="score-text">score</p>
-      <p className="score-number">12</p>
+      <p className="score-number">{score}</p>
     </div>
   );
 }
@@ -47,15 +49,20 @@ function Main() {
 
   return (
     <div className="main">
-      {/* {!userPick && !housePick && <ScenePlay onUserPick={setUserPick} />}
-      {userPick && !housePick && <SceneUserPicked />}
-      {userPick && housePick && <SceneHousePicked />} */}
-      <SceneUserLose />
+      {/* {!userPick && !housePick && <ScenePlay onUserPick={setUserPick} />} */}
+      {/* {userPick && !housePick && <SceneUserPicked />} */}
+      {/* {userPick && housePick && <SceneHousePicked />} */}
+      {/* FIXME */}
+      <ScenePlay onUserPick={setUserPick} />
+      {/* <SceneUserPicked /> */}
+      {/* <SceneHousePicked /> */}
+      {/* <SceneUserLose /> */}
       {/* <SceneUserWin /> */}
     </div>
   );
 }
 
+// Play game, user choose
 function ScenePlay({ onUserPick }) {
   return (
     <div className="scene-play">
@@ -75,6 +82,7 @@ function ScenePlay({ onUserPick }) {
   );
 }
 
+// User chose, show choice
 function SceneUserPicked() {
   return (
     <div className="scene-picked">
@@ -90,6 +98,7 @@ function SceneUserPicked() {
   );
 }
 
+// House chose, show choice
 function SceneHousePicked() {
   return (
     <div className="scene-picked">
@@ -105,10 +114,12 @@ function SceneHousePicked() {
   );
 }
 
+// User lose, show result
 function SceneUserLose() {
   return <div className="scene-result"></div>;
 }
 
+// User win, show result
 function SceneUserWin() {
   return <div>You win</div>;
 }

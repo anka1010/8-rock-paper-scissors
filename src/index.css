@@ -15,6 +15,7 @@
 
   /* BUTTON */
   --button-radius: 20rem;
+  --button-radius-big: 30rem;
 }
 
 *,
@@ -54,25 +55,63 @@ a:active {
 .btn {
   display: block;
 
-  width: var(--button-radius);
-  height: var(--button-radius);
+  width: var(--button-radius-big);
+  height: var(--button-radius-big);
+
   border-radius: 50%;
 }
 
 .btn-active {
   cursor: pointer;
+
+  width: var(--button-radius);
+  height: var(--button-radius);
 }
 
+.btn::before {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.btn::after {
+  content: "";
+  display: block;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/* ROCK */
 .rock {
-  background: center no-repeat url("../public/img/icon-rock.svg"),
-    var(--red-gradient);
+  background-color: #fff;
+  background-size: 80%;
+  position: relative;
 }
 
+.rock::before {
+  background: var(--red-gradient);
+  z-index: -1;
+}
+
+.rock::after {
+  background: center no-repeat url("../public/img/icon-rock.svg");
+}
+
+/* PAPER */
 .paper {
   background: center no-repeat url("../public/img/icon-paper.svg"),
     var(--violet-gradient);
 }
 
+/* SCISSORS */
 .scissors {
   background: center no-repeat url("../public/img/icon-scissors.svg"),
     var(--orange-gradient);
@@ -162,7 +201,7 @@ body {
 .scene-play {
   width: 47.6rem;
   height: 43rem;
-  background-image: ("../public/img/bg-triangle.svg");
+  background: center center no-repeat url("../public/img/bg-triangle.svg");
 
   position: relative;
 }
