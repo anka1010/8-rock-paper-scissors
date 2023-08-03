@@ -1,6 +1,7 @@
-TODO 1. refactor grid to flex (to easy insert item) - test it 
+TODO 1. "play again" button - text color. Animations on hover and click
 
-TODO 2. buttons - finish appearance. Add hover and click effects
+TODO 2. buttons - finish appearance. Add hover and click effects. Add backgrouns circles for the winner button
 
-TODO 3. Scene play - background: add triangle
+TODO 3. "rules" - Animations on hover and click
+
 

@@ -53,11 +53,10 @@ function Main() {
       {/* {userPick && !housePick && <SceneUserPicked />} */}
       {/* {userPick && housePick && <SceneHousePicked />} */}
       {/* FIXME */}
-      <ScenePlay onUserPick={setUserPick} />
+      {/* <ScenePlay onUserPick={setUserPick} /> */}
       {/* <SceneUserPicked /> */}
       {/* <SceneHousePicked /> */}
-      {/* <SceneUserLose /> */}
-      {/* <SceneUserWin /> */}
+      <SceneResult>You lose</SceneResult>
     </div>
   );
 }
@@ -83,31 +82,33 @@ function ScenePlay({ onUserPick }) {
 }
 
 // User chose, show choice
+// FIXME
 function SceneUserPicked() {
   return (
     <div className="scene-picked">
       <div>
-        <h2>You picked</h2>
+        <h3>You picked</h3>
         <button className="btn scissors"></button>
       </div>
       <div>
-        <h2>The house picked</h2>
+        <h3>The house picked</h3>
         <button className="house-pick"></button>
       </div>
     </div>
   );
 }
 
+// FIXME
 // House chose, show choice
 function SceneHousePicked() {
   return (
     <div className="scene-picked">
       <div>
-        <h2>You picked</h2>
+        <h3>You picked</h3>
         <button className="btn scissors"></button>
       </div>
       <div>
-        <h2>The house picked</h2>
+        <h3>The house picked</h3>
         <button className="btn rock"></button>
       </div>
     </div>
@@ -115,16 +116,34 @@ function SceneHousePicked() {
 }
 
 // User lose, show result
-function SceneUserLose() {
-  return <div className="scene-result"></div>;
-}
-
-// User win, show result
-function SceneUserWin() {
-  return <div>You win</div>;
+function SceneResult({ children }) {
+  return (
+    <div className="scene-picked">
+      <div>
+        <h3>You picked</h3>
+        <button className="btn scissors"></button>
+      </div>
+      <div className="play-again">
+        <h2>{children}</h2>
+        <button className="btn-play">Play again</button>
+      </div>
+      <div>
+        <h3>The house picked</h3>
+        <div className="btn-win">
+          <button className="btn rock"></button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 // RULES
 function Rules() {
-  return <div className="rules">Rules</div>;
+  return (
+    <div className="rules">
+      <a className="btn-rules" href="!#">
+        Rules
+      </a>
+    </div>
+  );
 }
